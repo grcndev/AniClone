@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={overpass.className}>
+      <body className={overpass.className} style={{backgroundColor: "#EDF1F5"}}>
         <Navbar/>
         <Landing/>
         {children}</body>

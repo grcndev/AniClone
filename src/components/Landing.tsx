@@ -6,7 +6,7 @@ import stats from '../assets/stats.svg'
 
 const Landing = () => {
   return (
-    <div className='flex flex-col bg-bglanding rounded-2xl w-auto mt-12 mx-96 mb-28'>
+    <div className='flex flex-col bg-bglanding rounded-2xl w-auto mt-12 mx-96 mb-28 '>
         <div className='flex flex-col items-center gap-4 mt-16 font-bold'>
             <h1 className='text-mjtitleldg text-3xl'>The next-generation anime platform</h1>
             <h4 className='text-spanldg justify-center text-center text-xl max-w-sm font-light'>Track, share, and discover your favorite anime and manga with Anilist</h4>

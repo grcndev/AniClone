@@ -27,6 +27,9 @@ const config: Config = {
       "spanldg": "#acd5f2;",
     },
     extend: {
+      boxShadow: {
+        'filter': '0 14px 30px rgba(103,132,187,.1), 0 4px 4px rgba(103,132,187,.04)',
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

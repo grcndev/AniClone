@@ -11,22 +11,22 @@ const Card = ({ anime }) => {
   //   const rank = anime.attributes.popularityRank;
   //   const rate = anime.attributes.ratingRank;
   return (
-    <div>
-      <Link href={`/anime/${anime.id}`}>
-        <div className="grid grid-cols-5 auto-rows-auto">
-          <div className="flex flex-col">
-          <Image
-            className="h-52 w-44"
-            height={210}
-            width={150}
-            alt="poster"
-            src={poster}
-          ></Image>
-
-        <div className="color-txtcard">{title}</div>
-        </div>
-        </div>
-      </Link>
+    <div className="w-full mx-auto">
+      <div className="p-4 max-w-6xl mx-auto">
+        <Link href={`/anime/${anime.id}`}>
+          <div className="flex flex-col justify-evenly">
+            <Image
+              className="h-full max-w-full mb-3"
+              height={265}
+              width={185}
+              alt="poster"
+              src={poster}
+              style={{ height: "100%", width: "100%" }}
+            />
+            <div className="text-sm mb-3 text-txtcard">{title}</div>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };

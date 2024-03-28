@@ -1,16 +1,60 @@
 import AnimeContainer from "@/components/AnimeContainer"
+import Filters from "@/components/Filters"
+import Landing from "@/components/Landing"
+import Navbar from "@/components/Navbar"
 
- const Home = async ({searchParams}) => {
-  const genre = searchParams.genre
-  const res = await fetch(`https://kitsu.io/api/edge/trending/anime?page[limit]=5&sort=-${genre ==='averageRating'}`)
+ const Home = async () => {
+
+  const fetchRows = async () => {
+    const trendingResponse = await fetch(`https://kitsu.io/api/edge/trending/anime?limit=20?`)
     
-  const {data} = await res.json()
-  if(!res.ok) {
-    throw new Error('failed to fetch data')
+    const {data: trendingData} = await trendingResponse.json()
+
+    console.log(trendingData)
+
+    const popularResponse = await fetch(`https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=current&page%5Blimit%5D=6&sort=-user_count`)
+    
+    const {data: popularData} = await popularResponse.json()
+
+    const upcominResponse = await fetch(`https://kitsu.io/api/edge/anime?filter%5Bstatus%5D=upcoming&page%5Blimit%5D=6&sort=-user_count`)
+    
+    const {data: upcomingData} = await upcominResponse.json()
+
+    const allTimeResponse = await fetch(`https://kitsu.io/api/edge/trending/manga?page[limit]=0&sort=-canonicalTitle`)
+    
+    const {data: allTimeData} = await allTimeResponse.json()
+
+
+    return [{
+      title: 'Trending Anime',
+      data: trendingData
+    },
+    { 
+      title: 'Popular This Season',
+      data: popularData
+    },
+    { 
+      title: 'Upcoming Next Season',
+      data: upcomingData
+    },
+    { 
+      title: 'All Time Popular',
+      data: allTimeData
+    },
+  ]
+    
   }
+
+  const rowsData = await fetchRows()
+
  
   return (
-    <AnimeContainer data={data}/>
+    <>
+   <Navbar />
+    <Landing />
+    <Filters/>
+    <AnimeContainer rowsData={rowsData}/>
+    </>
   );
 }
 

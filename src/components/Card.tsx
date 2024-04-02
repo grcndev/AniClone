@@ -4,6 +4,7 @@ import React from "react";
 
 const Card = ({ anime }) => {
   const title = anime.attributes.titles.en;
+ 
   const poster = anime.attributes.posterImage.large;
   //   const score = anime.attributes.averageRating;
   //   const synopsis = anime.attributes.synopsis;

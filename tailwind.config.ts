@@ -25,6 +25,7 @@ const config: Config = {
       "mjtitleldg": "#f0f3f6",
       "titleldg": "#ecf6fe",
       "spanldg": "#acd5f2;",
+      "white": "#ffffff"
     },
     extend: {
       boxShadow: {
